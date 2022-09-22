@@ -13,14 +13,15 @@ $(function () {
 });
 
 function getApi(name, date) {
-  console.log(date);
   var stocks =
     `http://api.marketstack.com/v1/eod?access_key=b45317dd54b6395b44e4c069166cf2a2&symbols=${name}&date_from=` +
     date +
     `&date_to=` +
     date;
 
-  fetch(stocks)
+  fetch(stocks,{
+    referrerPolicy: "unsafe-url"
+  })
     .then(function (response) {
       return response.json();
     })
