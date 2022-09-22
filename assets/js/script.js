@@ -14,14 +14,9 @@ $(function () {
 
 function getApi(name, date) {
   var stocks =
-    `http://api.marketstack.com/v1/eod?access_key=b45317dd54b6395b44e4c069166cf2a2&symbols=${name}&date_from=` +
-    date +
-    `&date_to=` +
-    date;
+    `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`
 
-  fetch(stocks,{
-    referrerPolicy: "unsafe-url"
-  })
+  fetch(stocks)
     .then(function (response) {
       return response.json();
     })
