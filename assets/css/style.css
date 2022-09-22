@@ -1,0 +1,48 @@
+.mainHead {
+  display: flex;
+  padding: 10px;
+  background: #225a8e;
+  color: #fff;
+  justify-content: center;
+}
+.mainHead h1 {
+  font-size: 250%;
+}
+#Name {
+  margin: 2%;
+  text-align-last: center;
+}
+#graph {
+  display: none;
+  border: 5px solid black;
+  margin: 2% 20%;
+  text-align-last: center;
+}
+#news {
+  display: none;
+  text-align: -webkit-center;
+  border: 5px solid black;
+  margin: 0 20%;
+}
+#submit {
+  font-size: 15px;
+  font-family: Arial;
+  width: 100px;
+  height: 27px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #d02718;
+  font-weight: bold;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 3px 4px 0px 0px rgba(46, 58, 141, 1);
+  text-shadow: 0px 1px 0px rgba(62, 75, 202, 1);
+  background: linear-gradient(#c62d1f, rgba(55, 65, 242, 1));
+}
+
+#submit:hover {
+  background: linear-gradient(rgba(55, 65, 242, 1), #c62d1f);
+  cursor: pointer;
+}
