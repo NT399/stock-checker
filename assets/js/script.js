@@ -1,4 +1,3 @@
-
 const date = document.getElementById("date");
 const currentDay = moment().format("MM/D/Y");
 var graph = document.getElementById("graph");
@@ -47,13 +46,13 @@ function displayNews(name) {
       return response.json();
     })
     .then(function (data) {
-        console.log(data);
-        name = name.toUpperCase();
-        news.textContent = "";
-        news.style.display = "block";
-        var header = document.createElement("h1");
-        header.textContent = name +" News";
-        news.append(header);
+      console.log(data);
+      name = name.toUpperCase();
+      news.textContent = "";
+      news.style.display = "block";
+      var header = document.createElement("h1");
+      header.textContent = name + " News";
+      news.append(header);
     });
 }
 
