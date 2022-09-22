@@ -1,3 +1,5 @@
+// wdlHDly3k10aOX14DvXjuQS08ILsJq0U
+
 const date = document.getElementById("date");
 const currentDay = moment().format("MM/D/Y");
 var graph = document.getElementById("graph");
@@ -37,22 +39,32 @@ function getApi(name, date) {
 
 function displayNews(name) {
   news.style.display = "block";
-  var stocksNews = `https://api.marketaux.com/v1/news/all?symbols=${name}&filter_entities=true&language=en&api_token=5NwYFtQgsDYc5CVnbkRY5xAXi3xs5QFuhAfkqDgx`;
-  fetch(stocksNews)
+  var myHeaders = new Headers();
+  myHeaders.append("apikey", "wdlHDly3k10aOX14DvXjuQS08ILsJq0U");
+  
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+  };
+  
+  fetch(`https://api.apilayer.com/financelayer/news?tickers=aapl&keywords=aapl`, requestOptions)
     .then(function (response) {
-      return response.json();
+     return response.json()
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.data[0].entities[0].name);
-      name = name.toUpperCase();
+      console.log(data)
       news.textContent = "";
       news.style.display = "block";
-      var header = document.createElement("h1");
-      header.textContent = data.data[0].entities[0].name + " News";
-      news.append(header);
-    });
-}
+      var newsHeading = document.createElement("li");
+
+      newsHeading.textContent = data.data[0].title;
+      news.append(newsHeading);
+
+
+    }) 
+    .catch(error => console.log('error', error));
+    };
 
 function search() {
   var searchName = document.getElementById("search").value;
