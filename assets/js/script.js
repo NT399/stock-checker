@@ -13,9 +13,8 @@ $(function () {
 });
 
 function getApi(name, date) {
-  name=name.toUpperCase();
-  var stocks =
-    `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`
+  name = name.toUpperCase();
+  var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
 
   fetch(stocks)
     .then(function (response) {
@@ -43,14 +42,33 @@ function displayNews(name) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.data[0].entities[0].name);
       name = name.toUpperCase();
       news.textContent = "";
       news.style.display = "block";
       var header = document.createElement("h1");
       header.textContent = data.data[0].entities[0].name + " News";
       news.append(header);
+      getNewsFromApi(stocksNews);
+    });
+}
+
+function getNewsFromApi(stocksNews) {
+  fetch(stocksNews)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data.data[0].description);
+      for (var i = 0; i < 3; i++) {
+        var desc = document.createElement("h4");
+        var link = document.createElement("a");
+        desc.textContent = data.data[i].description;
+        link.href = data.data[i].url;
+        link.innerHTML = "Click here for more info";
+        news.append(desc);
+        news.append(link);
+      }
     });
 }
 
