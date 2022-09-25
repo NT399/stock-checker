@@ -46,3 +46,17 @@
   background: linear-gradient(rgba(55, 65, 242, 1), #c62d1f);
   cursor: pointer;
 }
+.stsec {
+  display: flex;
+  font-size:small;
+  font-weight: bold;
+  height: 40px;
+  background: linear-gradient(#c86056, rgb(50, 52, 96));
+  color:white;
+  
+}
+
+ 
+
+
+  
