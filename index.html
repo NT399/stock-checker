@@ -9,21 +9,21 @@
   </head>
   <body>
     <section class="stsec">
-      <div>TSLA</div>
-      <div>AMZN</div>
-      <div>AAPL</div>
-      <div>MSFT</div>
-      <div>META</div>
-      <div>GOOGL</div>
+      <div id="tslax">TSLA</div>
+      <div id="amznx">AMZN</div>
+      <div id="aaplx">AAPL</div>
+      <div id="msftx">MSFT</div>
+      <div id="metax">META</div>
+      <div id="googlx">GOOGL</div>
     </section>
     <header class="mainHead">
       <h1>Stocks Price Checker</h1>
     </header>
-    <!-- Added sidebar for search history -->
+    <!-- This is the sidebar for search history -->
     <div id="sidebar">
       <p>Stock search history</p>
       <p  id="searchedStocks"></p>
-    </div>
+     </div>
     <div id="Name">
       Search:
       <input type="text" name="Name" id="search" />
@@ -31,7 +31,7 @@
       <p>Date: <input type="text" id="date" /></p>
     </div>
     <div id="graph"></div>
-    <div id="news"><h2>News</h2></div>
+    <div id="news"></div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
