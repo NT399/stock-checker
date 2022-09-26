@@ -18,6 +18,8 @@ function getApi(name, date) {
   name = name.toUpperCase();
   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
 
+  
+
   fetch(stocks)
     .then(function (response) {
       return response.json();
@@ -36,6 +38,34 @@ function getApi(name, date) {
     });
 }
 
+var currentDate = new Date();
+var dd = String(currentDate.getDate()).padStart(2, '0');
+dd = dd-4;
+var mm = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = currentDate.getFullYear();
+
+currentDate =yyyy+ '-' + mm + '-' + dd;
+function getApistatic(name, date, idName) {
+  name = name.toUpperCase();
+  var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
+
+  fetch(stocks)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {            
+      var result = data.ticker + " " +"--"+"$" + data.results[0].c;
+      document.getElementById(idName).innerHTML = result;
+    });
+}
+
+getApistatic("TSLA", currentDate, "tslax");
+getApistatic("AMZN", currentDate, "amznx");
+getApistatic("AAPL", currentDate, "aaplx");
+getApistatic("MSFT", currentDate, "msftx");
+//getApistatic("meta", currentDate, "metax");
+//getApistatic("googl", currentDate, "googlx");
+
 function displayNews(name) {
   news.style.display = "block";
   var myHeaders = new Headers();
@@ -52,37 +82,6 @@ function displayNews(name) {
      return response.json()
     })
     .then(function (data) {
-<<<<<<< HEAD
-      name = name.toUpperCase();
-      news.textContent = "";
-      news.style.display = "block";
-      var header = document.createElement("h1");
-      header.textContent = data.data[0].entities[0].name + " News";
-      news.append(header);
-      getNewsFromApi(stocksNews);
-    });
-}
-
-function getNewsFromApi(stocksNews) {
-  fetch(stocksNews)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      console.log(data.data[0].description);
-      for (var i = 0; i < 3; i++) {
-        var desc = document.createElement("h4");
-        var link = document.createElement("a");
-        desc.textContent = data.data[i].description;
-        link.href = data.data[i].url;
-        link.innerHTML = "Click here for more info";
-        news.append(desc);
-        news.append(link);
-      }
-    });
-}
-=======
       console.log(data)
       news.textContent = "";
       news.style.display = "block";
@@ -95,7 +94,6 @@ function getNewsFromApi(stocksNews) {
     }) 
     .catch(error => console.log('error', error));
     };
->>>>>>> 62b4a99dd2e7716ee22a5ef24055c6d3a6766f97
 
 function search() {
   var searchName = document.getElementById("search").value;
