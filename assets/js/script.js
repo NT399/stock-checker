@@ -30,11 +30,17 @@ function getApi(name, date) {
       graph.textContent = "";
       graph.style.display = "block";
       var stockName = document.createElement("h1");
-      var stockPrice = document.createElement("h1");
+      var stockClose = document.createElement("h2");
+      var stockHigh = document.createElement("h2");
+      var stockLow = document.createElement("h2");
       stockName.textContent = data.ticker;
-      stockPrice.textContent = "$" + data.results[0].c;
+      stockClose.textContent = "Closing price:"+" $" + data.results[0].c;
+      stockHigh.textContent = "Highest price:"+" $" + data.results[0].h;
+      stockLow.textContent = "Lowest price:"+" $" + data.results[0].l;
       graph.append(stockName);
-      graph.append(stockPrice);
+      graph.append(stockClose);
+      graph.append(stockHigh);
+      graph.append(stockLow);
     });
 }
 
@@ -45,24 +51,24 @@ var mm = String(currentDate.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = currentDate.getFullYear();
 
 currentDate = yyyy + "-" + mm + "-" + dd;
-function getApistatic(name, date, idName) {
-  name = name.toUpperCase();
-  var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
+// function getApistatic(name, date, idName) {
+//   name = name.toUpperCase();
+//   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
 
-  fetch(stocks)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      var result = data.ticker + " " + "--" + "$" + data.results[0].c;
-      document.getElementById(idName).innerHTML = result;
-    });
-}
+//   fetch(stocks)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       var result = data.ticker + " " + "--" + "$" + data.results[0].c;
+//       document.getElementById(idName).innerHTML = result;
+//     });
+// }
 
-getApistatic("TSLA", currentDate, "tslax");
-getApistatic("AMZN", currentDate, "amznx");
-getApistatic("AAPL", currentDate, "aaplx");
-getApistatic("MSFT", currentDate, "msftx");
+// getApistatic("TSLA", currentDate, "tslax");
+// getApistatic("AMZN", currentDate, "amznx");
+// getApistatic("AAPL", currentDate, "aaplx");
+// getApistatic("MSFT", currentDate, "msftx");
 //getApistatic("meta", currentDate, "metax");
 //getApistatic("googl", currentDate, "googlx");
 
@@ -108,9 +114,9 @@ function displayNews(name) {
     .catch((error) => console.log("error", error));
 }
 function saveHistory(name){
-  if(!names.find((n) => n === name)){
+  if (!names.find((n) => n === name)) {
     names.push(name);
-    localStorage.setItem('search' , JSON.stringify(name));
+    localStorage.setItem("search" , JSON.stringify(names));
   }
   displayHistory(names);
 }
@@ -122,7 +128,8 @@ function displayHistory(names) {
     name.textContent = stock;
     name.onclick = function () {
       document.getElementById("search").value = stock;
-      getApi(searchName, date);
+      console.log(stock)
+      getApi(stock);
     };
 
     history.append(name);
