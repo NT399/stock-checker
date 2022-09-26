@@ -1,13 +1,18 @@
 .mainHead {
   display: flex;
   padding: 10px;
-  background: #225a8e;
+  background-image: linear-gradient(to left, rgb(180, 180, 197) , darkblue);
   color: #fff;
   justify-content: center;
 }
 .mainHead h1 {
   font-size: 250%;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #Name {
   margin: 2%;
   text-align-last: center;
