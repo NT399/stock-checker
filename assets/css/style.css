@@ -1,13 +1,18 @@
 .mainHead {
   display: flex;
   padding: 10px;
-  background: #225a8e;
+  background-image: linear-gradient(to left, rgb(180, 180, 197) , darkblue);
   color: #fff;
   justify-content: center;
 }
 .mainHead h1 {
   font-size: 250%;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #Name {
   margin: 2%;
   text-align-last: center;
@@ -58,7 +63,6 @@
   color:white;
   
 }
-
 #sidebar {
   height: 100%; 
   width: 160px; 
@@ -69,7 +73,24 @@
   overflow-x: hidden; 
   padding-top: 20px;
 }
+#news li{
+  font-size: 200%;
+  background-color: #225a8e;
+  color: whitesmoke;
+} 
+#news p{
+  font-size: 125%;
 
+}
+#news a{
+  text-decoration: none;
+}
+#news h1{
+  background-color: darkblue;
+  color: #fff;
+  margin:0%;
+  padding: 2%;
+}
  
 
 
