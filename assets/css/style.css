@@ -48,9 +48,11 @@
 }
 .stsec {
   display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
   font-size:small;
   font-weight: bold;
-  height: 40px;
+  height: 30px;
   background: linear-gradient(#c86056, rgb(50, 52, 96));
   color:white;
   
