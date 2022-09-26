@@ -5,6 +5,8 @@ const currentDay = moment().format("MM/D/Y");
 var graph = document.getElementById("graph");
 var news = document.getElementById("news");
 
+const names = localStorage.search ? JSON.parse(localStorage.search) : [];
+
 const searchButton = document.getElementById("submit");
 searchButton.addEventListener("click", search);
 
@@ -105,10 +107,32 @@ function displayNews(name) {
     })
     .catch((error) => console.log("error", error));
 }
+function saveHistory(name){
+  if(!names.find((n) => n === name)){
+    names.push(name);
+    localStorage.setItem('search' , JSON.stringify(name));
+  }
+  displayHistory(names);
+}
+function displayHistory(names) {
+  var history = document.getElementById("sidebar");
+  history.textContent = "";
+  names.forEach((stock) => {
+    var name = document.createElement("button");
+    name.textContent = stock;
+    name.onclick = function () {
+      document.getElementById("search").value = stock;
+      getApi(searchName, date);
+    };
+
+    history.append(name);
+  });
+}
 
 function search() {
   var searchName = document.getElementById("search").value;
   var date = document.getElementById("date").value;
   getApi(searchName, date);
   displayNews(searchName);
+  saveHistory(searchName)
 }

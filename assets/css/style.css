@@ -16,7 +16,7 @@ body {
 #Name {
   margin: 2%;
   text-align-last: center;
-  margin-left: 90px; 
+  margin-left: 90px;
 }
 #graph {
   display: none;
@@ -56,42 +56,60 @@ body {
   display: flex;
   justify-content: space-around;
   padding-top: 15px;
-  font-size:small;
+  font-size: small;
   font-weight: bold;
   height: 30px;
   background: linear-gradient(#c86056, rgb(50, 52, 96));
-  color:white;
-  
+  color: white;
 }
 #sidebar {
-  height: 100%; 
-  width: 160px; 
-  position: fixed; 
-  z-index: 1; 
-  left:10;
-  background-color: rgb(220, 246, 255); 
-  overflow-x: hidden; 
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  left: 10;
+  background-color: rgb(220, 246, 255);
+  overflow-x: hidden;
   padding-top: 20px;
+  text-align: center;
 }
-#news li{
+#news li {
   font-size: 200%;
   background-color: #225a8e;
   color: whitesmoke;
-} 
-#news p{
-  font-size: 125%;
-
 }
-#news a{
+#news p {
+  font-size: 125%;
+}
+#news a {
   text-decoration: none;
 }
-#news h1{
+#news h1 {
   background-color: darkblue;
   color: #fff;
-  margin:0%;
+  margin: 0%;
   padding: 2%;
 }
- 
+#sidebar button {
+  font-size: 15px;
+  font-family: Arial;
+  width: 150px;
+  height: 30px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #337bc4;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 3px 4px 0px 0px #1564ad;
+  text-shadow: 0px 1px 0px #528ecc;
+  background: linear-gradient(#79bbff, #378de5);
+  margin: 3% 0;
+}
 
-
-  
+#sidebar button:hover {
+  cursor: pointer;
+  background: linear-gradient(#378de5, #79bbff);
+}
