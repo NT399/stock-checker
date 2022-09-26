@@ -11,6 +11,7 @@
 #Name {
   margin: 2%;
   text-align-last: center;
+  margin-left: 90px; 
 }
 #graph {
   display: none;
@@ -56,6 +57,17 @@
   background: linear-gradient(#c86056, rgb(50, 52, 96));
   color:white;
   
+}
+
+#sidebar {
+  height: 100%; 
+  width: 160px; 
+  position: fixed; 
+  z-index: 1; 
+  left:10;
+  background-color: rgb(220, 246, 255); 
+  overflow-x: hidden; 
+  padding-top: 20px;
 }
 
  
