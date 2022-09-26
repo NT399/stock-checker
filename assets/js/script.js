@@ -18,8 +18,6 @@ function getApi(name, date) {
   name = name.toUpperCase();
   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
 
-  
-
   fetch(stocks)
     .then(function (response) {
       return response.json();
@@ -39,12 +37,12 @@ function getApi(name, date) {
 }
 
 var currentDate = new Date();
-var dd = String(currentDate.getDate()).padStart(2, '0');
-dd = dd-4;
-var mm = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+var dd = String(currentDate.getDate()).padStart(2, "0");
+dd = dd - 4;
+var mm = String(currentDate.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = currentDate.getFullYear();
 
-currentDate =yyyy+ '-' + mm + '-' + dd;
+currentDate = yyyy + "-" + mm + "-" + dd;
 function getApistatic(name, date, idName) {
   name = name.toUpperCase();
   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
@@ -53,8 +51,8 @@ function getApistatic(name, date, idName) {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {            
-      var result = data.ticker + " " +"--"+"$" + data.results[0].c;
+    .then(function (data) {
+      var result = data.ticker + " " + "--" + "$" + data.results[0].c;
       document.getElementById(idName).innerHTML = result;
     });
 }
@@ -69,31 +67,44 @@ getApistatic("MSFT", currentDate, "msftx");
 function displayNews(name) {
   news.style.display = "block";
   var myHeaders = new Headers();
-  myHeaders.append("apikey", "wdlHDly3k10aOX14DvXjuQS08ILsJq0U");
-  
+  myHeaders.append("apikey", "kLQl4KA3mpPWQkvdCie1mEOIIDKCIcIz");
+
   var requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    headers: myHeaders
+    method: "GET",
+    redirect: "follow",
+    headers: myHeaders,
   };
-  
-  fetch(`https://api.apilayer.com/financelayer/news?tickers=aapl&keywords=aapl`, requestOptions)
+
+  fetch(
+    `https://api.apilayer.com/financelayer/news?tickers=${name}&keywords=${name}`,
+    requestOptions
+  )
     .then(function (response) {
-     return response.json()
+      return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
       news.textContent = "";
       news.style.display = "block";
-      var newsHeading = document.createElement("li");
+      var head = document.createElement("h1");
+      head.textContent = 'News';
+      news.append(head);
+      for (var i = 0; i < 5; i++) {
+        var newsHeading = document.createElement("li");
+        var desc = document.createElement("p");
+        var link = document.createElement('a');
+        newsHeading.textContent = data.data[i].title;
+        desc.textContent = data.data[i].description;
+        link.href = data.data[i].url;
+        link.innerHTML = 'Click here for more info';
+        news.append(newsHeading);
+        news.append(desc);
+        news.append(link);
 
-      newsHeading.textContent = data.data[0].title;
-      news.append(newsHeading);
-
-
-    }) 
-    .catch(error => console.log('error', error));
-    };
+      }
+    })
+    .catch((error) => console.log("error", error));
+}
 
 function search() {
   var searchName = document.getElementById("search").value;
