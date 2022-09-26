@@ -68,7 +68,24 @@
   overflow-x: hidden; 
   padding-top: 20px;
 }
+#news li{
+  font-size: 200%;
+  background-color: #225a8e;
+  color: whitesmoke;
+} 
+#news p{
+  font-size: 125%;
 
+}
+#news a{
+  text-decoration: none;
+}
+#news h1{
+  background-color: darkblue;
+  color: #fff;
+  margin:0%;
+  padding: 2%;
+}
  
 
 
