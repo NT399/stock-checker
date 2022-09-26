@@ -1,7 +1,7 @@
 .mainHead {
   display: flex;
   padding: 10px;
-  background: #225a8e;
+  background-image: linear-gradient(to right, rgb(47, 47, 173), darkBlue);
   color: #fff;
   justify-content: center;
 }
@@ -42,6 +42,11 @@
   text-shadow: 0px 1px 0px rgba(62, 75, 202, 1);
   background: linear-gradient(#c62d1f, rgba(55, 65, 242, 1));
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 
 #submit:hover {
   background: linear-gradient(rgba(55, 65, 242, 1), #c62d1f);
