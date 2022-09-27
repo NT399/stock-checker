@@ -18,6 +18,8 @@ The following components were instrumental for completing this project:
     - A for-loop was utilised in the News function to display 5 news items - this also has the added feature of preventing any repeated code.
     - A function was used for the Search History by pushing the searched items to a string and also creating/appending a button. When a button is clicked, it would display the searched stock (from the string) into the search bar.
     - A function was used for the actual search by inputting the search name (obtained from the search bar value) and embedding/calling it in the API, News and search history function.
+    
+Please note: This website/application should not be relied upon for investment/personal purposes. This website was produced purely as a project for a course.
 
 ## Table of Contents
 
@@ -37,7 +39,7 @@ To use the application, please follow the steps below:
 4. Your search history should be displayed on the left pane - to recall one of those searches, click the button and enter the date and click search.
 
 
-![Screenshot of the website](placeholder)
+![Screenshot of the website](https://github.com/NT399/stock-checker/blob/main/assets/Imagies/Snippet%20of%20the%20webpage.PNG)
 
 ## Credits
 
