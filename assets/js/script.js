@@ -51,26 +51,25 @@ var mm = String(currentDate.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = currentDate.getFullYear();
 
 currentDate = yyyy + "-" + mm + "-" + dd;
-// function getApistatic(name, date, idName) {
-//   name = name.toUpperCase();
-//   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
+ function getApistatic(name, date, idName) {
+   name = name.toUpperCase();
+   var stocks = `https://api.polygon.io/v2/aggs/ticker/${name}/range/1/day/${date}/${date}?adjusted=true&sort=asc&limit=120&apiKey=llDWlVpxTIuYF14j8vAukNJR3ZvzmmpH`;
 
-//   fetch(stocks)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       var result = data.ticker + " " + "--" + "$" + data.results[0].c;
-//       document.getElementById(idName).innerHTML = result;
-//     });
-// }
+   fetch(stocks)
+    .then(function (response) {
+       return response.json();
+    })
+    .then(function (data) {
+       var result = data.ticker + " " + "--" + "$" + data.results[0].c;
+       document.getElementById(idName).innerHTML = result;
+    });
+ }
 
-// getApistatic("TSLA", currentDate, "tslax");
-// getApistatic("AMZN", currentDate, "amznx");
-// getApistatic("AAPL", currentDate, "aaplx");
-// getApistatic("MSFT", currentDate, "msftx");
-//getApistatic("meta", currentDate, "metax");
-//getApistatic("googl", currentDate, "googlx");
+ getApistatic("TSLA", currentDate, "tslax");
+ getApistatic("AMZN", currentDate, "amznx");
+ getApistatic("AAPL", currentDate, "aaplx");
+ getApistatic("MSFT", currentDate, "msftx");
+
 
 function displayNews(name) {
   news.style.display = "block";

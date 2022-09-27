@@ -15,7 +15,7 @@ body {
 
 #Name {
   text-align-last: center;
-  background-color: black;
+  background-color: rgb(64, 68, 108);
   color: white;
   padding: 1%;
 }
@@ -67,12 +67,15 @@ body {
   color: white;
 }
 #sidebar {
+  color: #fff;
+  font-weight:500;
+  text-decoration: underline;
   height: 100%;
   width: 160px;
   position: fixed;
   z-index: 1;
   left: 10;
-  background-color: rgb(220, 246, 255);
+  background: linear-gradient(rgb(104, 110, 193), #693b37);
   overflow-x: hidden;
   padding-top: 20px;
   text-align: center;
